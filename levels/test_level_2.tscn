@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://2ko5sf1s31qq"]
+
+[ext_resource type="PackedScene" uid="uid://bilisdktrssmo" path="res://entities/player.tscn" id="1_d6nfl"]
+[ext_resource type="PackedScene" uid="uid://cijtrx0q0ux83" path="res://entities/interactibles/gem.tscn" id="2_d6nfl"]
+[ext_resource type="Texture2D" uid="uid://b7i04buoqojni" path="res://assets/textures/grass128.png" id="2_gmgay"]
+[ext_resource type="Material" uid="uid://behx8v876ghs0" path="res://assets/materials/grass_material.tres" id="3_gmgay"]
+[ext_resource type="PackedScene" uid="uid://crist72nmy8mh" path="res://structure/level_defaults.tscn" id="5_o7bhh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e7anx"]
+albedo_texture = ExtResource("2_gmgay")
+uv1_scale = Vector3(5, 5, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_w7r7j"]
+material = ExtResource("3_gmgay")
+size = Vector3(10, 4, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o6mel"]
+size = Vector3(10, 4, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gmgay"]
+material = ExtResource("3_gmgay")
+size = Vector3(50, 1, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w7r7j"]
+size = Vector3(50, 1, 50)
+
+[node name="TestLevel" type="Node3D" unique_id=1692396195]
+
+[node name="Entities" type="Node3D" parent="." unique_id=1092903462]
+
+[node name="Player" parent="Entities" unique_id=1617432243 instance=ExtResource("1_d6nfl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.856851, 4.3498306, -4.372628)
+
+[node name="Gem6" parent="Entities" unique_id=1983696615 instance=ExtResource("2_d6nfl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.37657, 9.536743e-07, 6.894676)
+
+[node name="Gem7" parent="Entities" unique_id=651103634 instance=ExtResource("2_d6nfl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.936306, 9.536743e-07, 6.0412064)
+
+[node name="Gem8" parent="Entities" unique_id=1735084220 instance=ExtResource("2_d6nfl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.023123, 9.536743e-07, -4.803211)
+
+[node name="Gem9" parent="Entities" unique_id=1873121816 instance=ExtResource("2_d6nfl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.505705, 3.000001, -9.034281)
+
+[node name="Environment" type="Node3D" parent="." unique_id=200304763]
+
+[node name="Floor" type="CSGBox3D" parent="Environment" unique_id=428407292]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+size = Vector3(30, 1, 30)
+material = SubResource("StandardMaterial3D_e7anx")
+
+[node name="Cliff" type="CSGBox3D" parent="Environment" unique_id=1600864878]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.91, 1.5, -9.143)
+use_collision = true
+collision_mask = 0
+size = Vector3(14.18, 3, 11.714)
+material = SubResource("StandardMaterial3D_e7anx")
+
+[node name="Ramp" type="CSGBox3D" parent="Environment" unique_id=1724405590]
+transform = Transform3D(1, 0, 0, 0, 0.8660253, -0.49999997, 0, 0.49999997, 0.8660253, -5.286005, 0.07854009, -1.2363157)
+use_collision = true
+collision_mask = 0
+size = Vector3(5.568516, 3, 6.564153)
+material = SubResource("StandardMaterial3D_e7anx")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Environment" unique_id=1162696205]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.312983, 0, -7.5640383)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/StaticBody3D2" unique_id=1209352682]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_w7r7j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/StaticBody3D2" unique_id=2124275695]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_o6mel")
+disabled = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment" unique_id=384600091]
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/StaticBody3D" unique_id=76801459]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("BoxMesh_gmgay")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/StaticBody3D" unique_id=885135248]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_w7r7j")
+disabled = true
+
+[node name="LevelDefaults" parent="." unique_id=102674357 instance=ExtResource("5_o7bhh")]

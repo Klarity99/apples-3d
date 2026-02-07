@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://c4hvbhpmvbere"]
+
+[ext_resource type="PackedScene" uid="uid://cohke03wi7cor" path="res://entities/interactible.tscn" id="1_72lsr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_72lsr"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7ixox"]
+material = SubResource("StandardMaterial3D_72lsr")
+size = Vector3(0.4, 0.2, 0.7)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ixox"]
+albedo_color = Color(0.72, 0.45228, 0.02159998, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1m858"]
+material = SubResource("StandardMaterial3D_7ixox")
+size = Vector3(0.1, 1, 0.1)
+
+[node name="Lever" unique_id=1983696615 instance=ExtResource("1_72lsr")]
+id = "lever"
+type = "off"
+
+[node name="Mesh" parent="View" parent_id_path=PackedInt32Array(1442723105) index="0" unique_id=764708754]
+visible = false
+
+[node name="Select" parent="View" parent_id_path=PackedInt32Array(1442723105) index="1" unique_id=405349179]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+visible = true
+
+[node name="Base" type="MeshInstance3D" parent="View" parent_id_path=PackedInt32Array(1442723105) index="2" unique_id=1696536663]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+mesh = SubResource("BoxMesh_7ixox")
+
+[node name="Pivot" type="Node3D" parent="View" parent_id_path=PackedInt32Array(1442723105) index="3" unique_id=985079258]
+
+[node name="Stick" type="MeshInstance3D" parent="View/Pivot" index="0" unique_id=168783974]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+mesh = SubResource("BoxMesh_1m858")

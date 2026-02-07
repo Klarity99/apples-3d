@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://geqpr2d7btdg"]
+
+[ext_resource type="Script" uid="uid://ft15v3jy5qly" path="res://structure/menu.gd" id="3_y8bu1"]
+[ext_resource type="Script" uid="uid://dg6mvgcxwf7to" path="res://structure/menu_main.gd" id="4_d14pc"]
+[ext_resource type="Script" uid="uid://cw104ebouar86" path="res://structure/menu_play.gd" id="5_ux32c"]
+[ext_resource type="PackedScene" uid="uid://bluhs4s7rgy3c" path="res://interface/level_box.tscn" id="6_d7wwc"]
+
+[node name="Main" type="Node3D" unique_id=772201389]
+
+[node name="Game" type="Node3D" parent="." unique_id=247593442]
+
+[node name="Menu" type="Control" parent="." unique_id=3136771]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("3_y8bu1")
+
+[node name="Main" type="Control" parent="Menu" unique_id=903432992]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+script = ExtResource("4_d14pc")
+
+[node name="Title" type="Label" parent="Menu/Main" unique_id=1365902286]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 215.0
+offset_right = 808.0
+offset_bottom = 303.0
+theme_override_font_sizes/font_size = 64
+text = "Apples 3D"
+
+[node name="Box" type="VBoxContainer" parent="Menu/Main" unique_id=1615991349]
+layout_mode = 0
+offset_left = 493.0
+offset_top = 323.0
+offset_right = 837.0
+offset_bottom = 681.0
+mouse_filter = 2
+
+[node name="Play" type="Button" parent="Menu/Main/Box" unique_id=1056986600]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Play"
+
+[node name="Options" type="Button" parent="Menu/Main/Box" unique_id=840806038]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Options"
+
+[node name="Play" type="Control" parent="Menu" unique_id=545827063]
+anchors_preset = 0
+mouse_filter = 2
+script = ExtResource("5_ux32c")
+
+[node name="Grid" type="GridContainer" parent="Menu/Play" unique_id=662073918]
+layout_mode = 0
+offset_left = 266.0
+offset_top = 210.0
+offset_right = 266.0
+offset_bottom = 210.0
+mouse_filter = 2
+columns = 6
+
+[node name="LevelBox" parent="Menu/Play/Grid" unique_id=705610607 instance=ExtResource("6_d7wwc")]
+layout_mode = 2

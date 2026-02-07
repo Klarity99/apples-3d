@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bilisdktrssmo"]
+
+[ext_resource type="Script" uid="uid://clfesehp7447c" path="res://entities/player.gd" id="1_merdl"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_w7r7j"]
+radius = 0.4
+height = 1.6
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w7r7j"]
+radius = 0.4
+height = 1.6
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_o6mel"]
+radius = 2.0
+
+[node name="Player" type="CharacterBody3D" unique_id=1617432243]
+collision_layer = 3
+script = ExtResource("1_merdl")
+
+[node name="View" type="Node3D" parent="." unique_id=1652363341]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="View" unique_id=44769105]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+mesh = SubResource("CapsuleMesh_w7r7j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=902060145]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+shape = SubResource("CapsuleShape3D_w7r7j")
+
+[node name="ReachArea" type="Area3D" parent="." unique_id=2134015534]
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ReachArea" unique_id=2077244370]
+shape = SubResource("SphereShape3D_o6mel")
