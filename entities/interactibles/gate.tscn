@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dlrmrpqp82dk3"]
+
+[ext_resource type="Script" uid="uid://trcsg4l3tqgt" path="res://entities/gate.gd" id="1_rhq5n"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wndkh"]
+albedo_color = Color(0.47, 0.34169, 0.103400014, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ly3hx"]
+material = SubResource("StandardMaterial3D_wndkh")
+size = Vector3(1.5, 2, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4n8tn"]
+size = Vector3(3, 2, 0.2)
+
+[node name="Gate" type="Node3D" unique_id=1429615738]
+transform = Transform3D(-4.371139e-08, 0, 0.99999994, 0, 1, 0, -1, 0, -4.3711385e-08, 0, 0, 0)
+script = ExtResource("1_rhq5n")
+
+[node name="View" type="Node3D" parent="." unique_id=650850787]
+
+[node name="Left" type="Node3D" parent="View" unique_id=721498855]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.35, 0, 0)
+
+[node name="Door" type="MeshInstance3D" parent="View/Left" unique_id=611528784]
+transform = Transform3D(1, 0, -3.5527137e-15, -2.9802322e-08, 1, 0, 0, -2.9802322e-08, 1, 0.6, 1, 0)
+mesh = SubResource("BoxMesh_ly3hx")
+
+[node name="Right" type="Node3D" parent="View" unique_id=2087327422]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35, 0, 0)
+
+[node name="Door" type="MeshInstance3D" parent="View/Right" unique_id=898148704]
+transform = Transform3D(1, 0, -3.5527137e-15, -2.9802322e-08, 1, 0, 0, -2.9802322e-08, 1, -0.6, 1, 0)
+mesh = SubResource("BoxMesh_ly3hx")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1043863848]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1141731484]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_4n8tn")

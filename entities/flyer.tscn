@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dptannr5h3srx"]
+
+[ext_resource type="Script" uid="uid://qwsdkry0cehm" path="res://entities/flyer.gd" id="1_u7pcq"]
+
+[node name="Flyer" type="Node3D" unique_id=1090731797]
+top_level = true
+script = ExtResource("1_u7pcq")
+
+[node name="WaitPeriod" type="Timer" parent="." unique_id=1011040909]
+one_shot = true

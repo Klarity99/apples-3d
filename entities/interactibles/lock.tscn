@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://c10al2hi8fujb"]
+
+[ext_resource type="PackedScene" uid="uid://cohke03wi7cor" path="res://entities/interactible.tscn" id="1_ct7ni"]
+[ext_resource type="Material" uid="uid://bb6gsqxatjo7r" path="res://assets/materials/yellow_mat.tres" id="2_vs7dr"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vejc1"]
+material = ExtResource("2_vs7dr")
+size = Vector3(0.6, 0.5, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_au1li"]
+material = ExtResource("2_vs7dr")
+size = Vector3(0.1, 0.3, 0.1)
+
+[node name="Lock" unique_id=1983696615 instance=ExtResource("1_ct7ni")]
+
+[node name="Mesh" parent="View" parent_id_path=PackedInt32Array(1442723105) index="0" unique_id=764708754]
+visible = false
+
+[node name="Select" parent="View" parent_id_path=PackedInt32Array(1442723105) index="1" unique_id=405349179]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+visible = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="View" parent_id_path=PackedInt32Array(1442723105) index="2" unique_id=1187611033]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_vejc1")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="View" parent_id_path=PackedInt32Array(1442723105) index="3" unique_id=1823804659]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 1.4, 0)
+mesh = SubResource("BoxMesh_au1li")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="View" parent_id_path=PackedInt32Array(1442723105) index="4" unique_id=862805211]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, 1.4, 0)
+mesh = SubResource("BoxMesh_au1li")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="View" parent_id_path=PackedInt32Array(1442723105) index="5" unique_id=1001001278]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 1.6, 0)
+mesh = SubResource("BoxMesh_au1li")

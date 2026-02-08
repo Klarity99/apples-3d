@@ -24,17 +24,20 @@ id = "key"
 type = "red"
 
 [node name="Mesh" parent="View" parent_id_path=PackedInt32Array(1442723105) index="0" unique_id=764708754]
-transform = Transform3D(0.99999994, 0, 0, 0, -4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, -0.5, 2, 0)
+transform = Transform3D(0.99999994, 0, 0, 0, -4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, -0.5, 1, 0)
 mesh = SubResource("CylinderMesh_8ygnd")
 
 [node name="Mesh2" type="MeshInstance3D" parent="View" parent_id_path=PackedInt32Array(1442723105) index="1" unique_id=303442271]
-transform = Transform3D(0.99999994, 0, 0, 0, -4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, 0.34401393, 2, 0)
+transform = Transform3D(0.99999994, 0, 0, 0, -4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, 0.34401393, 1, 0)
 mesh = SubResource("BoxMesh_imoyw")
 
 [node name="Mesh3" type="MeshInstance3D" parent="View" parent_id_path=PackedInt32Array(1442723105) index="2" unique_id=1519325673]
-transform = Transform3D(-4.3711385e-08, -4.3711385e-08, -0.99999994, -0.99999994, 1.9106853e-15, 4.3711385e-08, 0, 0.99999994, -4.3711385e-08, 0.40471947, 1.7516997, 0)
+transform = Transform3D(-4.3711385e-08, -4.3711385e-08, -0.99999994, -0.99999994, 1.9106853e-15, 4.3711385e-08, 0, 0.99999994, -4.3711385e-08, 0.40471947, 0.7516997, 0)
 mesh = SubResource("BoxMesh_3m7al")
 
 [node name="Mesh4" type="MeshInstance3D" parent="View" parent_id_path=PackedInt32Array(1442723105) index="3" unique_id=1471105123]
-transform = Transform3D(-4.3711385e-08, -4.3711385e-08, -0.99999994, -0.99999994, 1.9106853e-15, 4.3711385e-08, 0, 0.99999994, -4.3711385e-08, 0.7434933, 1.7506049, 0)
+transform = Transform3D(-4.3711385e-08, -4.3711385e-08, -0.99999994, -0.99999994, 1.9106853e-15, 4.3711385e-08, 0, 0.99999994, -4.3711385e-08, 0.7434933, 0.75060487, 0)
 mesh = SubResource("BoxMesh_3m7al")
+
+[node name="Select" parent="View" parent_id_path=PackedInt32Array(1442723105) index="4" unique_id=405349179]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

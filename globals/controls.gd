@@ -44,7 +44,7 @@ func open_level(arg_level_index := level_index, arg_track_index := track_index) 
 	var level_id = levels[track_index][level_index]
 	var level: Node3D = load("res://levels/%s.tscn" % level_id).instantiate()
 	if Nodes.level:
-#		Nodes.level.queue_free()
+		Nodes.level.queue_free()
 	Nodes.level = level
 	Nodes.init_level()
 	if Nodes.interface:

@@ -2,6 +2,7 @@ extends Node3D
 class_name Interactible
 
 @onready var select_view := $View/Select
+@onready var view := $View
 @onready var interact_area := $InteractArea
 @export var id: String
 @export var type: String
@@ -20,6 +21,7 @@ func change():
 			var on := type == "on"
 			$View/Pivot.rotation_degrees.x = -45 if on else 45
 			$View/Base.mesh.material.albedo_color = Color.GREEN if on else Color.RED
+			object.open(on)
 
 func highlight(on: bool):
 	select_view.visible = on
