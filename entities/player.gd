@@ -62,6 +62,8 @@ func check_interacts():
 
 func parse_interact():
 	match interact_object.id:
+		"teleport_circle":
+			global_position = interact_object.object.global_position
 		"lock":
 			if carry and carry.id == "key" and carry.type == interact_object.type:
 				interact_object.queue_free()

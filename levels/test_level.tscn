@@ -13,8 +13,21 @@
 [ext_resource type="PackedScene" uid="uid://c10al2hi8fujb" path="res://entities/interactibles/lock.tscn" id="7_wkb0e"]
 [ext_resource type="PackedScene" uid="uid://cj8v1qk1d423g" path="res://entities/interactibles/red_lock.tscn" id="8_paa45"]
 [ext_resource type="PackedScene" uid="uid://c6p78pi2g7epr" path="res://entities/platform.tscn" id="10_8hjdj"]
+[ext_resource type="Script" uid="uid://dwosuovv6luu" path="res://entities/crate.gd" id="11_wjuib"]
+[ext_resource type="Material" uid="uid://cl8jgfbscoi3b" path="res://assets/materials/brown_mat.tres" id="12_xag4j"]
+[ext_resource type="PackedScene" uid="uid://igh3co7gn40r" path="res://entities/interactibles/teleport_circle.tscn" id="13_xag4j"]
 [ext_resource type="Script" uid="uid://3oqbsn46punr" path="res://structure/cameras.gd" id="14_8hjdj"]
 [ext_resource type="Script" uid="uid://ccl71uom415jy" path="res://structure/camera_tester.gd" id="15_0vv12"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0vv12"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_o5yuq"]
+material = ExtResource("12_xag4j")
+size = Vector3(2, 2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pgbyh"]
+size = Vector3(0.25, 1, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e7anx"]
 albedo_texture = ExtResource("2_gmgay")
@@ -101,6 +114,65 @@ wait_period = 3.0
 
 [node name="Marker3D2" type="Marker3D" parent="Entities/Platform/Flyer" unique_id=1473879893]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.34, 0, 0)
+
+[node name="Crate" type="StaticBody3D" parent="Entities" unique_id=917658427]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5355134, 0, 5.8171864)
+script = ExtResource("11_wjuib")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entities/Crate" unique_id=1858457248]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_0vv12")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Entities/Crate" unique_id=1871027067]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_o5yuq")
+
+[node name="Left" type="Area3D" parent="Entities/Crate" unique_id=404676734]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entities/Crate/Left" unique_id=1945017391]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.125, 0.5, 0)
+shape = SubResource("BoxShape3D_pgbyh")
+
+[node name="Top" type="Area3D" parent="Entities/Crate" unique_id=755301176]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entities/Crate/Top" unique_id=1853584408]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.125, 0.5, 0)
+shape = SubResource("BoxShape3D_pgbyh")
+
+[node name="Right" type="Area3D" parent="Entities/Crate" unique_id=1327830956]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entities/Crate/Right" unique_id=262360058]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.125, 0.5, 0)
+shape = SubResource("BoxShape3D_pgbyh")
+
+[node name="Bot" type="Area3D" parent="Entities/Crate" unique_id=814342080]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 0, 0, 0)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entities/Crate/Bot" unique_id=1476019542]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.125, 0.5, 0)
+shape = SubResource("BoxShape3D_pgbyh")
+
+[node name="TeleportCircle2" parent="Entities" unique_id=1072025913 node_paths=PackedStringArray("object") instance=ExtResource("13_xag4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.848362, 0, 0)
+object = NodePath("../TeleportCircle3")
+
+[node name="TeleportCircle3" parent="Entities" unique_id=203867049 node_paths=PackedStringArray("object") instance=ExtResource("13_xag4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.848362, 0, 9.180199)
+object = NodePath("../TeleportCircle2")
 
 [node name="Environment" type="Node3D" parent="." unique_id=200304763]
 

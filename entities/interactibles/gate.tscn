@@ -1,12 +1,10 @@
 [gd_scene format=3 uid="uid://dlrmrpqp82dk3"]
 
 [ext_resource type="Script" uid="uid://trcsg4l3tqgt" path="res://entities/gate.gd" id="1_rhq5n"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wndkh"]
-albedo_color = Color(0.47, 0.34169, 0.103400014, 1)
+[ext_resource type="Material" uid="uid://cl8jgfbscoi3b" path="res://assets/materials/brown_mat.tres" id="2_aevte"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ly3hx"]
-material = SubResource("StandardMaterial3D_wndkh")
+material = ExtResource("2_aevte")
 size = Vector3(1.5, 2, 0.3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4n8tn"]
